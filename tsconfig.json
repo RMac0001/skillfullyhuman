@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "types": ["node", "vitest/globals"],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@app/*": ["app/*"],
+      "@ftypes/*": ["types/*"],
+      "@api/*": ["api/*"],
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@/*": ["*"]
+    }
+  },
+  "include": [
+    "tests",
+    "setup.ts",
+    "vitest.config.ts", // optional, helps with IDE support
+    "app",
+    "components",
+    "lib",
+    "utils",
+    "ftypes",
+    "types/**/*.d.ts",
+    "next-env.d.ts",
+    "**/*.{ts,tsx,js}",
+    ".next/types/**/*.ts",
+    "next.config.cjs",
+    "scripts/verify-env.cjs"
+  ],
+  "exclude": ["node_modules"]
+}

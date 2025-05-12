@@ -1,0 +1,47 @@
+// File: .eslintrc.json
+{
+    "extends": [
+      "next/core-web-vitals",
+      "prettier",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+      // Possible errors
+      "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+      "no-debugger": "warn",
+  
+      // Best practices
+      "curly": ["error", "all"],
+      "eqeqeq": ["error", "always"],
+      "no-floating-decimal": "error",
+      "no-implicit-coercion": "error",
+  
+      // Variables
+      "no-unused-vars": "off", // TypeScript handles this
+      "@typescript-eslint/no-unused-vars": ["error", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }],
+      "no-var": "error",
+      "prefer-const": "error",
+  
+      // Stylistic
+      "array-bracket-spacing": ["error", "never"],
+      "block-spacing": ["error", "always"],
+      "comma-dangle": ["error", "always-multiline"],
+      "comma-spacing": ["error", { "before": false, "after": true }],
+  
+      // TypeScript specific
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-empty-function": "warn",
+  
+      // React
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/jsx-curly-brace-presence": ["error", "never"],
+      "react/self-closing-comp": "error"
+    }
+  }  
