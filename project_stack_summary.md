@@ -17,6 +17,7 @@ This document provides a comprehensive overview of your current tech stack, tool
 | **Linting**      | ESLint                  | With TypeScript and Prettier plugins                 |
 | **Formatting**   | Prettier                | Enforced on save via VS Code settings                |
 | **Editor**       | Visual Studio Code      | With custom settings, aliasing, and formatting rules |
+| **UI**           | Chakra UI v3            | Using createSystem + defineRecipe + semanticTokens   |
 
 ---
 
@@ -25,7 +26,7 @@ This document provides a comprehensive overview of your current tech stack, tool
 ```
 root/
 ├── app/                     # Next.js App Router pages and layouts
-├── components/              # Reusable UI components
+├── components/              # Reusable UI components (Chakra-based, themed via system tokens)
 ├── lib/
 │   ├── db/
 │   │   ├── mongo.ts         # Native MongoDB connection wrapper
@@ -72,6 +73,14 @@ import { connectToDatabase } from '@lib/db/mongo';
 
 ---
 
+## 🎨 Theming & Styling
+
+- Chakra UI v3 via `@chakra-ui/react`
+- `createSystem` used to define tokens, fonts, spacing
+- `defineRecipe` used for custom Button variants
+- Semantic tokens defined for `brand.*` colors
+- No Tailwind, no PostCSS — styling fully managed by Chakra
+
 ## 🔁 Dev Enhancements
 
 - **Live `.code-map.json` generator** to track all file purposes and exports
@@ -100,5 +109,3 @@ Your stack emphasizes:
 - **Developer-side automation** via CLI and extension scripts
 
 ---
-
-Let me know if you want a visual version of this stack (Mermaid diagram or Notion-style dashboard).
