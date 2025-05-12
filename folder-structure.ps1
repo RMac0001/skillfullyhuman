@@ -69,3 +69,4 @@ Write-Tree -BasePath $Root -Indent "" -Lines $lines
 # Output
 $lines | Set-Content -Path $Output -Encoding UTF8
 Write-Host "`n✅ Folder structure written to $Output" -ForegroundColor Green
+https://www.studiopress.com/themes/hello/#demo-full
