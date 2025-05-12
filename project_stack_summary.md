@@ -6,17 +6,16 @@ This document provides a comprehensive overview of your current tech stack, tool
 
 ## 🔧 Core Technologies
 
-| Layer            | Tool / Framework       | Notes |
-|------------------|-------------------------|-------|
-| **Frontend**     | Next.js (App Router)    | TypeScript, File-based routing, server components |
-| **Styling**      | Tailwind CSS            | Configurable utility-first styling |
-| **Database**     | MongoDB (native driver) | No Mongoose, using `MongoClient` directly |
-| **Vector DB**    | ChromaDB                | For semantic search and embeddings |
-| **Runtime**      | Node.js                 | TS execution via `ts-node` and server APIs |
-| **Package Mgmt** | npm                     | May evolve to `pnpm` or `bun` if desired |
-| **Testing**      | Vitest + jsdom          | Unit/component testing setup |
-| **Linting**      | ESLint                  | With TypeScript and Prettier plugins |
-| **Formatting**   | Prettier                | Enforced on save via VS Code settings |
+| Layer            | Tool / Framework        | Notes                                                |
+| ---------------- | ----------------------- | ---------------------------------------------------- |
+| **Frontend**     | Next.js (App Router)    | TypeScript, File-based routing, server components    |
+| **Database**     | MongoDB (native driver) | No Mongoose, using `MongoClient` directly            |
+| **Vector DB**    | ChromaDB                | For semantic search and embeddings                   |
+| **Runtime**      | Node.js                 | TS execution via `ts-node` and server APIs           |
+| **Package Mgmt** | npm                     | May evolve to `pnpm` or `bun` if desired             |
+| **Testing**      | Vitest + jsdom          | Unit/component testing setup                         |
+| **Linting**      | ESLint                  | With TypeScript and Prettier plugins                 |
+| **Formatting**   | Prettier                | Enforced on save via VS Code settings                |
 | **Editor**       | Visual Studio Code      | With custom settings, aliasing, and formatting rules |
 
 ---
@@ -65,6 +64,7 @@ Configured in both `tsconfig.json` and `vitest.config.ts`:
 ```
 
 Used like:
+
 ```ts
 import { User } from '@ftypes/user';
 import { connectToDatabase } from '@lib/db/mongo';
@@ -93,6 +93,7 @@ import { connectToDatabase } from '@lib/db/mongo';
 ## 🧠 Philosophy
 
 Your stack emphasizes:
+
 - **Explicit architecture** over frameworks doing magic
 - **Composable and isolated components**
 - **Portable tooling** (no lock-in to GitHub Actions, CI, or SaaS)

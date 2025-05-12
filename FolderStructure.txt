@@ -40,10 +40,17 @@
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components
-│   └── layout
-│       ├── AdminLayout.tsx
-│       ├── Footer.tsx
-│       └── Header.tsx
+│   ├── layout
+│   │   ├── AdminLayout.tsx
+│   │   ├── button.tsx
+│   │   ├── Footer.tsx
+│   │   └── Header.tsx
+│   └── ui
+│       ├── button.tsx
+│       ├── color-mode.tsx
+│       ├── provider.tsx
+│       ├── toaster.tsx
+│       └── tooltip.tsx
 ├── dev-utils
 │   ├── test-chroma-connection.js
 │   └── test-mongo-connection.js
@@ -80,6 +87,8 @@
 │   ├── components
 │   │   └── Header.test.tsx
 │   └── setup.ts
+├── theme
+│   └── index.ts
 ├── types
 │   ├── index.ts
 │   ├── lesson.ts
@@ -99,10 +108,9 @@
 ├── next-env.d.ts
 ├── package.json
 ├── package-lock.json
-├── postcss.config.ts
+├── project_stack_summary.md
 ├── query
 ├── README.md
-├── tailwind.config.ts
 ├── temp.txt
 ├── tsconfig.json
 ├── tsconfig.tsbuildinfo

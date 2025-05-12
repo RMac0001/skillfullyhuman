@@ -1,3 +1,11 @@
+'use client';
+
+import { PrimaryButton } from '@/components/ui/button';
+
 export default function HomePage() {
-    return <div>Welcome to the Home Page</div>;
-  }
+  return (
+    <main style={{ padding: '2rem' }}>
+      <PrimaryButton onClick={() => alert('Working!')}>Click Me</PrimaryButton>
+    </main>
+  );
+}
