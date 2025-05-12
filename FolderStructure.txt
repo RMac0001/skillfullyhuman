@@ -1,0 +1,110 @@
+﻿/
+├── app
+│   ├── access-denied
+│   │   └── page.tsx
+│   ├── admin
+│   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── login
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── scripts
+│   │   │   ├── page.tsx
+│   │   │   └── ScriptsClient.tsx
+│   │   └── server-status
+│   │       ├── page.tsx
+│   │       └── ServerStatusClient.tsx
+│   ├── api
+│   │   ├── admin
+│   │   │   ├── available-scripts
+│   │   │   │   └── route.ts
+│   │   │   ├── dashboard-stats
+│   │   │   │   └── route.ts
+│   │   │   └── server-status
+│   │   │       └── route.ts
+│   │   ├── auth
+│   │   │   └── [...nextauth]
+│   │   │       └── route.ts
+│   │   ├── health
+│   │   │   └── route.ts
+│   │   └── status
+│   │       ├── chroma
+│   │       │   └── route.ts
+│   │       ├── mongo
+│   │       │   └── route.ts
+│   │       └── restart
+│   │           └── route.ts
+│   ├── status
+│   │   └── page.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   └── layout
+│       ├── AdminLayout.tsx
+│       ├── Footer.tsx
+│       └── Header.tsx
+├── dev-utils
+│   ├── test-chroma-connection.js
+│   └── test-mongo-connection.js
+├── lib
+│   ├── db
+│   │   ├── models
+│   │   │   ├── chroma
+│   │   │   └── mongo
+│   │   │       └── user.ts
+│   │   ├── chroma.ts
+│   │   └── mongo.ts
+│   ├── api-response.ts
+│   ├── date.ts
+│   ├── env.ts
+│   └── validate-env.ts
+├── mocks
+│   └── fs.js
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── scripts
+│   ├── cleanup-database.ts
+│   ├── create-admin.ts
+│   ├── create-mongo-admin.js
+│   ├── generate-code-map.ts
+│   ├── verify-env.cjs
+│   └── verify-env.ts
+├── tests
+│   ├── api
+│   │   └── blogApi.test.ts
+│   ├── components
+│   │   └── Header.test.tsx
+│   └── setup.ts
+├── types
+│   ├── index.ts
+│   ├── lesson.ts
+│   ├── next-auth.d.ts
+│   ├── post.ts
+│   ├── session.ts
+│   └── user.ts
+├── .env
+├── .env.template
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc
+├── LICENSE
+├── middleware.ts
+├── mongodb.cfg
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.ts
+├── query
+├── README.md
+├── tailwind.config.ts
+├── temp.txt
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+├── vitest.config.ts
+└── zip-project.js
