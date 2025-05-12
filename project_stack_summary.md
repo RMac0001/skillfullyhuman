@@ -75,11 +75,11 @@ import { connectToDatabase } from '@lib/db/mongo';
 
 ## 🎨 Theming & Styling
 
-- Chakra UI v3 via `@chakra-ui/react`
+- Chakra UI v3.17 via `@chakra-ui/react`
 - `createSystem` used to define tokens, fonts, spacing
 - `defineRecipe` used for custom Button variants
 - Semantic tokens defined for `brand.*` colors
-- No Tailwind, no PostCSS — styling fully managed by Chakra
+- Styling fully and exclusively managed by Chakra UI 3.17
 
 ## 🔁 Dev Enhancements
 
