@@ -39,6 +39,8 @@ root/
 ├── public/                  # Static assets (e.g. SVGs, icons)
 ├── scripts/                 # CLI and automation scripts (TypeScript-based)
 ├── tests/                   # Organized by type (api/, components/)
+├── theme
+│   └── index.ts
 ├── types/                   # Type definitions
 │   └── user.ts              # Example of scoped domain types
 ├── .code-map.json           # Auto-generated file map with purpose metadata
