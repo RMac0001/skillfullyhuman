@@ -1,3 +1,4 @@
+Section 01
 I've created a comprehensive guide for "Section 1: Project Setup and Chakra UI 3.17 Integration" that covers everything you requested. The artifact includes:
 
 Introduction to Chakra UI 3.17 and its key differences from previous versions
