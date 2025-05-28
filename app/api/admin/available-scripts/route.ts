@@ -1,4 +1,6 @@
 // app/api/admin/available-scripts/route.ts
+// working but not getting the descripts in ps1 files
+// TODO Fix getting of ps1 descriptions
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]/route';

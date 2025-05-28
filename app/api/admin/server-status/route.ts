@@ -6,6 +6,8 @@ import { connectToDatabase } from '@/lib/db/mongo';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import os from 'os';
+import { getChromaClient } from '@/lib/db/chroma';
+import dotenv from 'dotenv';
 
 const execPromise = promisify(exec);
 
@@ -79,35 +81,41 @@ async function getMongoDBMetrics(db: any): Promise<ServerMetrics> {
 // Get ChromaDB metrics
 async function getChromaDBMetrics(): Promise<ServerMetrics> {
   try {
-    const response = await fetch('http://localhost:8000/api/v1/collections', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`ChromaDB API error: ${response.status}`);
-    }
-
-    const data = await response.json();
+    const client = getChromaClient();
+    const collections = await client.listCollections();
 
     let totalEmbeddings = 0;
 
-    if (Array.isArray(data)) {
-      for (const collection of data) {
-        totalEmbeddings += collection.count || 0;
+    // collections is an array of strings (collection names)
+    for (const collectionName of collections) {
+      try {
+        // collectionName is already a string, use it directly
+        const collection = await client.getCollection({
+          name: collectionName,
+        });
+
+        const count = await collection.count();
+        totalEmbeddings += count;
+      } catch (err) {
+        console.warn(
+          `Error getting count for collection ${collectionName}:`,
+          err,
+        );
       }
     }
 
     return {
-      version: 'latest',
-      collections: Array.isArray(data) ? data.length : 0,
+      version: process.env.CHROMADB_VERSION ?? 'Latest',
+      collections: collections.length,
       totalEmbeddings,
     };
   } catch (error) {
     console.error('Error getting ChromaDB metrics:', error);
-    return {};
+    return {
+      version: 'unknown',
+      collections: 0,
+      totalEmbeddings: 0,
+    };
   }
 }
 
@@ -174,7 +182,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     let chromadbStatus: ServerStatusItem;
     try {
       // Simple connection check
-      const response = await fetch('http://localhost:8000/api/v1/heartbeat', {
+      const response = await fetch('http://localhost:3000/api/status/chroma', {
         method: 'GET',
       });
 

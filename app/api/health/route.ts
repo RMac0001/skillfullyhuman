@@ -1,4 +1,6 @@
 // app/api/health/route.ts
+
+//safe to delete
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/db/mongo'; // Use path alias or adjust path as needed
 

@@ -1,0 +1,13 @@
+/* components/ui/NewsletterSection.module.css */
+.wrapper {
+  padding: calc(var(--mantine-spacing-xl) * 2) 0;
+}
+
+.paper {
+  border-color: var(--mantine-color-gray-2);
+}
+
+.title {
+  font-weight: 900;
+  line-height: 1.1;
+}

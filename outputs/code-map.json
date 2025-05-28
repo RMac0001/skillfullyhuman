@@ -1,0 +1,2555 @@
+{
+  "metadata": {
+    "generated": "2025-05-27T12:47:16.517Z",
+    "projectRoot": "D:\\njserver",
+    "totalFiles": 74,
+    "options": {
+      "outputFileName": "code-map.json",
+      "includeNodeModules": false,
+      "analyzeComplexity": true,
+      "generateReport": true
+    }
+  },
+  "summary": {
+    "overview": {
+      "totalFiles": 74,
+      "byType": {
+        "unknown": 30,
+        "config": 1,
+        "middleware": 1,
+        "type-definition": 6,
+        "script": 8,
+        "utility": 8,
+        "dev-tool": 2,
+        "cms": 7,
+        "component": 11
+      },
+      "byLayer": {
+        "infrastructure": 26,
+        "presentation": 18
+      },
+      "byFramework": {
+        "next.js": 2,
+        "react": 11
+      },
+      "withTests": 0
+    },
+    "complexity": {
+      "totalLines": 8959,
+      "totalFunctions": 314,
+      "totalClasses": 0,
+      "totalInterfaces": 61,
+      "totalComponents": 89,
+      "averageComplexity": 121.06756756756756
+    },
+    "dependencies": {
+      "external": [
+        "@mantine/core",
+        "path",
+        "next",
+        "next/server",
+        "next-auth/jwt",
+        "mongodb",
+        "next-auth",
+        "fs",
+        "archiver",
+        "url",
+        "node:fs",
+        "node:path",
+        "node:child_process",
+        "ts-morph",
+        "glob",
+        "dotenv-safe",
+        "zod",
+        "readline",
+        "crypto",
+        "dotenv",
+        "@lib/env",
+        "@/types",
+        "@lib/chroma/client",
+        "@/lib/componentLibrary",
+        "react",
+        "@blocknote/react",
+        "@blocknote/mantine",
+        "@blocknote/core/fonts/inter.css",
+        "@blocknote/mantine/style.css",
+        "@tabler/icons-react",
+        "@mantine/notifications",
+        "next-auth/react",
+        "next/font/google",
+        "@mantine/core/styles.css",
+        "chromadb",
+        "@mantine/carousel",
+        "next/link",
+        "@mantine/form",
+        "next/navigation",
+        "@components/ui/Hero",
+        "@components/layout/Content",
+        "@components/layout/Header",
+        "@components/layout/Footer",
+        "@/lib/db/mongo",
+        "axios",
+        "@/components/ui/Hero",
+        "@components/ui/ContactSection",
+        "@components/ui/NewsletterSection",
+        "@components/ui/BlogPostCard",
+        "@lib/db/mongo",
+        "@ftypes/user",
+        "child_process",
+        "@lib/db/chroma",
+        "next-auth/providers/credentials",
+        "next-auth/next",
+        "util",
+        "os",
+        "@/lib/db/chroma",
+        "@lib/componentLibrary",
+        "@components/Canvas",
+        "@components/ComponentPalette",
+        "@components/PropertyEditor"
+      ],
+      "mostUsed": {
+        "@mantine/core": 32,
+        "path": 8,
+        "next": 2,
+        "next/server": 5,
+        "next-auth/jwt": 2,
+        "mongodb": 7,
+        "next-auth": 2,
+        "fs": 7,
+        "archiver": 1,
+        "url": 4,
+        "node:fs": 1,
+        "node:path": 1,
+        "node:child_process": 1,
+        "ts-morph": 1,
+        "glob": 1,
+        "dotenv-safe": 1,
+        "zod": 3,
+        "readline": 1,
+        "crypto": 2,
+        "dotenv": 2,
+        "@lib/env": 1,
+        "@/types": 1,
+        "@lib/chroma/client": 1,
+        "@/lib/componentLibrary": 3,
+        "react": 13,
+        "@blocknote/react": 3,
+        "@blocknote/mantine": 2,
+        "@blocknote/core/fonts/inter.css": 2,
+        "@blocknote/mantine/style.css": 2,
+        "@tabler/icons-react": 16,
+        "@mantine/notifications": 1,
+        "next-auth/react": 4,
+        "next/font/google": 1,
+        "@mantine/core/styles.css": 1,
+        "chromadb": 1,
+        "@mantine/carousel": 1,
+        "next/link": 5,
+        "@mantine/form": 2,
+        "next/navigation": 4,
+        "@components/ui/Hero": 5,
+        "@components/layout/Content": 4,
+        "@components/layout/Header": 1,
+        "@components/layout/Footer": 1,
+        "@/lib/db/mongo": 2,
+        "axios": 1,
+        "@/components/ui/Hero": 1,
+        "@components/ui/ContactSection": 1,
+        "@components/ui/NewsletterSection": 3,
+        "@components/ui/BlogPostCard": 1,
+        "@lib/db/mongo": 1,
+        "@ftypes/user": 1,
+        "child_process": 2,
+        "@lib/db/chroma": 1,
+        "next-auth/providers/credentials": 1,
+        "next-auth/next": 3,
+        "util": 1,
+        "os": 1,
+        "@/lib/db/chroma": 1,
+        "@lib/componentLibrary": 1,
+        "@components/Canvas": 1,
+        "@components/ComponentPalette": 1,
+        "@components/PropertyEditor": 1
+      }
+    },
+    "architecture": {
+      "apiRoutes": 0,
+      "pageComponents": 0,
+      "layers": {
+        "infrastructure": [
+          "next.config.ts",
+          "middleware.ts",
+          "types\\user.ts",
+          "types\\session.ts",
+          "types\\post.ts",
+          "types\\next-auth.d.ts",
+          "types\\lesson.ts",
+          "types\\index.ts",
+          "scripts\\zip-project.ts",
+          "scripts\\verify-env.ts",
+          "scripts\\generate-code-map.ts",
+          "scripts\\folder-structure.ts",
+          "scripts\\debug-setup.ts",
+          "scripts\\create-admin.ts",
+          "scripts\\cleanup-database.ts",
+          "lib\\validate-env.ts",
+          "lib\\env.ts",
+          "lib\\date.ts",
+          "lib\\componentLibrary.ts",
+          "lib\\api-response.ts",
+          "dev-utils\\test-mongo-connection.js",
+          "dev-utils\\test-chroma-connection.js",
+          "lib\\db\\mongo.ts",
+          "lib\\db\\chroma.ts",
+          "lib\\db\\models\\mongo\\user.ts",
+          "app\\api\\admin\\available-scripts\\route.ts"
+        ],
+        "presentation": [
+          "cms\\PropertyEditor.tsx",
+          "cms\\PageEditor.jsx",
+          "cms\\customBlocks.js",
+          "cms\\ComponentPalette.tsx",
+          "cms\\ComponentPalette.jsx",
+          "cms\\Canvas.tsx",
+          "cms\\BlockEditor.jsx",
+          "components\\Demo.tsx",
+          "components\\ui\\TestimonialSection.tsx",
+          "components\\ui\\ProductCard.tsx",
+          "components\\ui\\NewsletterSection.tsx",
+          "components\\ui\\Hero.tsx",
+          "components\\ui\\FeatureSection.tsx",
+          "components\\ui\\ContactSection.tsx",
+          "components\\ui\\BlogPostCard.tsx",
+          "components\\layout\\Header.tsx",
+          "components\\layout\\Footer.tsx",
+          "components\\layout\\Content.tsx"
+        ]
+      }
+    },
+    "apiAnalysis": {
+      "totalApiCalls": 12,
+      "totalEndpoints": 0,
+      "callsByMethod": {
+        "GET": 4,
+        "/API/STATUS/CHROMA": 1,
+        "/API/STATUS/MONGO": 1,
+        "/API/STATUS/RESTART": 1,
+        "/": 1,
+        "/ADMIN/DASHBOARD": 2,
+        "/API/ADMIN/SERVER-STATUS": 2
+      },
+      "endpointsByMethod": {},
+      "callsByType": {
+        "fetch": 6,
+        "axios": 3,
+        "next-auth": 3
+      },
+      "flowMap": {},
+      "unmatchedCalls": [
+        {
+          "file": "app\\api\\health\\route.ts",
+          "call": {
+            "method": "GET",
+            "endpoint": "http://localhost:8000/api/v1/heartbeat",
+            "line": 71,
+            "context": "// Try to connect to ChromaDB heartbeat endpoint\r\n    const response = await fetch('http://localhost:8000/api/v1/heartbeat', {\r\n      method: 'GET',",
+            "callType": "fetch"
+          }
+        },
+        {
+          "file": "app\\api\\health\\route.ts",
+          "call": {
+            "method": "GET",
+            "endpoint": "http://localhost:8000/api/v1/collections",
+            "line": 85,
+            "context": "// Get collections to add detail\r\n    const collectionsResponse = await fetch(\r\n      'http://localhost:8000/api/v1/collections',",
+            "callType": "fetch"
+          }
+        },
+        {
+          "file": "app\\(site)\\status\\page.tsx",
+          "call": {
+            "method": "/API/STATUS/CHROMA",
+            "endpoint": "get",
+            "line": 22,
+            "context": "try {\r\n      const chroma = await axios.get('/api/status/chroma');\r\n      setChromaStatus(chroma.data.status);",
+            "callType": "axios"
+          }
+        },
+        {
+          "file": "app\\(site)\\status\\page.tsx",
+          "call": {
+            "method": "/API/STATUS/MONGO",
+            "endpoint": "get",
+            "line": 29,
+            "context": "try {\r\n      const mongo = await axios.get('/api/status/mongo');\r\n      setMongoStatus(mongo.data.status);",
+            "callType": "axios"
+          }
+        },
+        {
+          "file": "app\\(site)\\status\\page.tsx",
+          "call": {
+            "method": "/API/STATUS/RESTART",
+            "endpoint": "post",
+            "line": 39,
+            "context": "const handleRestart = async (service: 'mongo' | 'chroma') => {\r\n    await axios.post(`/api/status/restart`, { service });\r\n    setTimeout(() => checkStatus(), 5000);",
+            "callType": "axios"
+          }
+        },
+        {
+          "file": "app\\(admin)\\admin\\layout.tsx",
+          "call": {
+            "method": "/",
+            "endpoint": "/",
+            "line": 60,
+            "context": "});\r\n      router.push('/');\r\n    } catch (error) {",
+            "callType": "next-auth"
+          }
+        },
+        {
+          "file": "app\\api\\admin\\server-status\\route.ts",
+          "call": {
+            "method": "GET",
+            "endpoint": "http://localhost:3000/api/status/chroma",
+            "line": 185,
+            "context": "// Simple connection check\r\n      const response = await fetch('http://localhost:3000/api/status/chroma', {\r\n        method: 'GET',",
+            "callType": "fetch"
+          }
+        },
+        {
+          "file": "app\\api\\admin\\dashboard-stats\\route.ts",
+          "call": {
+            "method": "GET",
+            "endpoint": "http://localhost:8000/api/v1/collections",
+            "line": 47,
+            "context": "try {\r\n      const response = await fetch('http://localhost:8000/api/v1/collections', {\r\n        method: 'GET',",
+            "callType": "fetch"
+          }
+        },
+        {
+          "file": "app\\(admin)\\admin\\login\\page.tsx",
+          "call": {
+            "method": "/ADMIN/DASHBOARD",
+            "endpoint": "/admin/dashboard",
+            "line": 25,
+            "context": "if (session) {\r\n      router.push('/admin/dashboard');\r\n    }",
+            "callType": "next-auth"
+          }
+        },
+        {
+          "file": "app\\(admin)\\admin\\login\\page.tsx",
+          "call": {
+            "method": "/ADMIN/DASHBOARD",
+            "endpoint": "/admin/dashboard",
+            "line": 67,
+            "context": "router.refresh();\r\n      router.push('/admin/dashboard');\r\n    } catch (error) {",
+            "callType": "next-auth"
+          }
+        },
+        {
+          "file": "app\\(admin)\\admin\\dashboard\\page.tsx",
+          "call": {
+            "method": "/API/ADMIN/SERVER-STATUS",
+            "endpoint": "/api/admin/server-status",
+            "line": 57,
+            "context": "try {\r\n        const response = await fetch('/api/admin/server-status');",
+            "callType": "fetch"
+          }
+        },
+        {
+          "file": "app\\(admin)\\admin\\dashboard\\page.tsx",
+          "call": {
+            "method": "/API/ADMIN/SERVER-STATUS",
+            "endpoint": "/api/admin/server-status",
+            "line": 103,
+            "context": "try {\r\n      const response = await fetch('/api/admin/server-status');\r\n      if (!response.ok) {",
+            "callType": "fetch"
+          }
+        }
+      ]
+    }
+  },
+  "files": {
+    "theme.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "theme"
+      ],
+      "imports": [
+        "@mantine/core"
+      ],
+      "dependencies": [
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 56,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "next.config.ts": {
+      "type": "config",
+      "purpose": "Next.js configuration",
+      "framework": "next.js",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "path",
+        "next"
+      ],
+      "dependencies": [
+        "path",
+        "next"
+      ],
+      "complexity": {
+        "lines": 52,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "next-env.d.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 6,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "middleware.ts": {
+      "type": "middleware",
+      "purpose": "Next.js middleware",
+      "framework": "next.js",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "middleware",
+        "config"
+      ],
+      "imports": [
+        "next/server",
+        "next-auth/jwt",
+        "./types/user"
+      ],
+      "dependencies": [
+        "next/server",
+        "next-auth/jwt"
+      ],
+      "complexity": {
+        "lines": 76,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\user.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "UserRole",
+        "User",
+        "UserCreateInput",
+        "UserUpdateInput",
+        "AuthUser"
+      ],
+      "imports": [
+        "mongodb"
+      ],
+      "dependencies": [
+        "mongodb"
+      ],
+      "complexity": {
+        "lines": 33,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\session.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Session",
+        "SessionCreateInput",
+        "SessionUpdateInput"
+      ],
+      "imports": [
+        "./user"
+      ],
+      "dependencies": [],
+      "complexity": {
+        "lines": 29,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\post.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Post",
+        "PostCreateInput",
+        "PostUpdateInput"
+      ],
+      "imports": [
+        "./user"
+      ],
+      "dependencies": [],
+      "complexity": {
+        "lines": 32,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\next-auth.d.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "next-auth",
+        "next-auth/jwt"
+      ],
+      "dependencies": [
+        "next-auth",
+        "next-auth/jwt"
+      ],
+      "complexity": {
+        "lines": 23,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\lesson.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Lesson",
+        "LessonCreateInput",
+        "LessonUpdateInput"
+      ],
+      "imports": [
+        "mongodb",
+        "./user"
+      ],
+      "dependencies": [
+        "mongodb"
+      ],
+      "complexity": {
+        "lines": 37,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "types\\index.ts": {
+      "type": "type-definition",
+      "purpose": "TypeScript type definitions",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "SEOProps",
+        "ApiResponse",
+        "PaginationParams",
+        "PaginatedResult"
+      ],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 39,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 4,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\zip-project.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "fs",
+        "path",
+        "archiver",
+        "url"
+      ],
+      "dependencies": [
+        "fs",
+        "path",
+        "archiver",
+        "url"
+      ],
+      "complexity": {
+        "lines": 294,
+        "functions": 14,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\verify-env.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:child_process"
+      ],
+      "dependencies": [
+        "node:fs",
+        "node:path",
+        "node:child_process"
+      ],
+      "complexity": {
+        "lines": 149,
+        "functions": 17,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\generate-code-map.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "ts-morph",
+        "path",
+        "fs",
+        "glob",
+        "url"
+      ],
+      "dependencies": [
+        "ts-morph",
+        "path",
+        "fs",
+        "glob",
+        "url"
+      ],
+      "complexity": {
+        "lines": 959,
+        "functions": 37,
+        "classes": 0,
+        "interfaces": 5,
+        "components": 7
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\folder-structure.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "fs",
+        "path",
+        "url"
+      ],
+      "dependencies": [
+        "fs",
+        "path",
+        "url"
+      ],
+      "complexity": {
+        "lines": 307,
+        "functions": 17,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\debug-setup.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "fs",
+        "path",
+        "url"
+      ],
+      "dependencies": [
+        "fs",
+        "path",
+        "url"
+      ],
+      "complexity": {
+        "lines": 335,
+        "functions": 25,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 4
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\create-admin.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "verifyPassword"
+      ],
+      "imports": [
+        "dotenv-safe",
+        "path",
+        "fs",
+        "../lib/db/mongo",
+        "zod",
+        "readline",
+        "crypto",
+        "mongodb",
+        "../types/user"
+      ],
+      "dependencies": [
+        "dotenv-safe",
+        "path",
+        "fs",
+        "zod",
+        "readline",
+        "crypto",
+        "mongodb"
+      ],
+      "complexity": {
+        "lines": 298,
+        "functions": 13,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "scripts\\cleanup-database.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "mongodb",
+        "dotenv"
+      ],
+      "dependencies": [
+        "mongodb",
+        "dotenv"
+      ],
+      "complexity": {
+        "lines": 191,
+        "functions": 5,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "mocks\\fs.js": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 11,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\validate-env.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@lib/env"
+      ],
+      "dependencies": [
+        "@lib/env"
+      ],
+      "complexity": {
+        "lines": 14,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\env.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "getEnv",
+        "getOptionalEnv",
+        "isFeatureEnabled",
+        "validateEnv"
+      ],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 66,
+        "functions": 4,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\date.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "formatDate",
+        "formatDateTime",
+        "getRelativeTime",
+        "countWords",
+        "calculateReadingTime"
+      ],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 81,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\componentLibrary.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "componentLibrary"
+      ],
+      "imports": [
+        "@mantine/core"
+      ],
+      "dependencies": [
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 44,
+        "functions": 0,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\api-response.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "success",
+        "error",
+        "paginated"
+      ],
+      "imports": [
+        "@/types"
+      ],
+      "dependencies": [
+        "@/types"
+      ],
+      "complexity": {
+        "lines": 55,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "dev-utils\\test-mongo-connection.js": {
+      "type": "dev-tool",
+      "purpose": "Development utility",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 21,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "dev-utils\\test-chroma-connection.js": {
+      "type": "dev-tool",
+      "purpose": "Development utility",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [],
+      "imports": [
+        "@lib/chroma/client"
+      ],
+      "dependencies": [
+        "@lib/chroma/client"
+      ],
+      "complexity": {
+        "lines": 17,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\PropertyEditor.tsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "complexity": {
+        "lines": 58,
+        "functions": 8,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 4
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\PageEditor.jsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@blocknote/react",
+        "@blocknote/mantine",
+        "@blocknote/core/fonts/inter.css",
+        "@blocknote/mantine/style.css",
+        "@mantine/core",
+        "./ComponentPalette",
+        "./customBlocks",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "@blocknote/react",
+        "@blocknote/mantine",
+        "@blocknote/core/fonts/inter.css",
+        "@blocknote/mantine/style.css",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 169,
+        "functions": 7,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\customBlocks.js": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "CardBlock",
+        "ButtonBlock"
+      ],
+      "imports": [
+        "@blocknote/react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "@blocknote/react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 205,
+        "functions": 8,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\ComponentPalette.tsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "ComponentPalette"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "complexity": {
+        "lines": 31,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\ComponentPalette.jsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 114,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\Canvas.tsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Canvas"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@/lib/componentLibrary"
+      ],
+      "complexity": {
+        "lines": 49,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "cms\\BlockEditor.jsx": {
+      "type": "cms",
+      "purpose": "Content management system component",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@blocknote/react",
+        "@blocknote/mantine",
+        "@blocknote/core/fonts/inter.css",
+        "@blocknote/mantine/style.css",
+        "@mantine/core"
+      ],
+      "dependencies": [
+        "react",
+        "@blocknote/react",
+        "@blocknote/mantine",
+        "@blocknote/core/fonts/inter.css",
+        "@blocknote/mantine/style.css",
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 36,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\Demo.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Demo",
+        "Demo2",
+        "Demo3"
+      ],
+      "imports": [
+        "@mantine/core"
+      ],
+      "dependencies": [
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 37,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 3
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\providers.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "Providers"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@mantine/notifications",
+        "../theme",
+        "next-auth/react"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@mantine/notifications",
+        "next-auth/react"
+      ],
+      "complexity": {
+        "lines": 19,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\not-found.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 9,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\layout.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default",
+        "metadata"
+      ],
+      "imports": [
+        "next/font/google",
+        "./globals.css",
+        "@mantine/core/styles.css",
+        "./providers"
+      ],
+      "dependencies": [
+        "next/font/google",
+        "@mantine/core/styles.css"
+      ],
+      "complexity": {
+        "lines": 29,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\db\\mongo.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "connectToDatabase",
+        "getCollection",
+        "closeDatabaseConnection"
+      ],
+      "imports": [
+        "mongodb"
+      ],
+      "dependencies": [
+        "mongodb"
+      ],
+      "complexity": {
+        "lines": 63,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\db\\chroma.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "getChromaClient",
+        "getOrCreateCollection"
+      ],
+      "imports": [
+        "chromadb"
+      ],
+      "dependencies": [
+        "chromadb"
+      ],
+      "complexity": {
+        "lines": 27,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\TestimonialSection.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "TestimonialSection"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@mantine/carousel",
+        "./TestimonialSection.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@mantine/carousel"
+      ],
+      "complexity": {
+        "lines": 112,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\ProductCard.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "ProductCard"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link",
+        "./ProductCard.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link"
+      ],
+      "complexity": {
+        "lines": 148,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\NewsletterSection.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "NewsletterSection"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@mantine/form",
+        "./NewsletterSection.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@mantine/form"
+      ],
+      "complexity": {
+        "lines": 124,
+        "functions": 5,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\Hero.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Hero"
+      ],
+      "imports": [
+        "@mantine/core",
+        "./Hero.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 123,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\FeatureSection.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "FeatureSection",
+        "Feature"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "./FeatureSection.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 97,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\ContactSection.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "ContactSection"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@mantine/form",
+        "@tabler/icons-react",
+        "./ContactSection.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@mantine/form",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 220,
+        "functions": 7,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 4
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\ui\\BlogPostCard.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "BlogPostCard"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link",
+        "./BlogPostCard.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link"
+      ],
+      "complexity": {
+        "lines": 129,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\layout\\Header.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@mantine/core",
+        "next/navigation",
+        "./Header.module.css",
+        "next/link"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "next/navigation",
+        "next/link"
+      ],
+      "complexity": {
+        "lines": 67,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\layout\\Footer.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@tabler/icons-react",
+        "./Footer.module.css"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 116,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 3
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "components\\layout\\Content.tsx": {
+      "type": "component",
+      "purpose": "React component",
+      "framework": "react",
+      "layer": "presentation",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "Content"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 17,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 1,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@components/ui/Hero",
+        "@components/layout/Content"
+      ],
+      "dependencies": [
+        "@components/ui/Hero",
+        "@components/layout/Content"
+      ],
+      "complexity": {
+        "lines": 79,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\layout.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@mantine/core",
+        "@components/layout/Header",
+        "@components/layout/Footer"
+      ],
+      "dependencies": [
+        "@mantine/core",
+        "@components/layout/Header",
+        "@components/layout/Footer"
+      ],
+      "complexity": {
+        "lines": 20,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\health\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "next/server",
+        "@/lib/db/mongo"
+      ],
+      "dependencies": [
+        "next/server",
+        "@/lib/db/mongo"
+      ],
+      "complexity": {
+        "lines": 184,
+        "functions": 3,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [
+        {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/heartbeat",
+          "line": 71,
+          "context": "// Try to connect to ChromaDB heartbeat endpoint\r\n    const response = await fetch('http://localhost:8000/api/v1/heartbeat', {\r\n      method: 'GET',",
+          "callType": "fetch"
+        },
+        {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/collections",
+          "line": 85,
+          "context": "// Get collections to add detail\r\n    const collectionsResponse = await fetch(\r\n      'http://localhost:8000/api/v1/collections',",
+          "callType": "fetch"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\status\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "axios",
+        "@components/layout/Content",
+        "@components/ui/Hero",
+        "@mantine/core",
+        "../../Demo"
+      ],
+      "dependencies": [
+        "react",
+        "axios",
+        "@components/layout/Content",
+        "@components/ui/Hero",
+        "@mantine/core"
+      ],
+      "complexity": {
+        "lines": 110,
+        "functions": 9,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 3
+      },
+      "apiCalls": [
+        {
+          "method": "/API/STATUS/CHROMA",
+          "endpoint": "get",
+          "line": 22,
+          "context": "try {\r\n      const chroma = await axios.get('/api/status/chroma');\r\n      setChromaStatus(chroma.data.status);",
+          "callType": "axios"
+        },
+        {
+          "method": "/API/STATUS/MONGO",
+          "endpoint": "get",
+          "line": 29,
+          "context": "try {\r\n      const mongo = await axios.get('/api/status/mongo');\r\n      setMongoStatus(mongo.data.status);",
+          "callType": "axios"
+        },
+        {
+          "method": "/API/STATUS/RESTART",
+          "endpoint": "post",
+          "line": 39,
+          "context": "const handleRestart = async (service: 'mongo' | 'chroma') => {\r\n    await axios.post(`/api/status/restart`, { service });\r\n    setTimeout(() => checkStatus(), 5000);",
+          "callType": "axios"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\sample\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@components/layout/Content",
+        "@/components/ui/Hero"
+      ],
+      "dependencies": [
+        "@components/layout/Content",
+        "@/components/ui/Hero"
+      ],
+      "complexity": {
+        "lines": 26,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\contact\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@components/ui/Hero",
+        "@components/ui/ContactSection",
+        "@components/ui/NewsletterSection",
+        "@components/layout/Content",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "@components/ui/Hero",
+        "@components/ui/ContactSection",
+        "@components/ui/NewsletterSection",
+        "@components/layout/Content",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 193,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\blog\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@components/ui/Hero",
+        "@components/ui/BlogPostCard",
+        "@components/ui/NewsletterSection",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "@components/ui/Hero",
+        "@components/ui/BlogPostCard",
+        "@components/ui/NewsletterSection",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 273,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\access-denied\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "next/link"
+      ],
+      "dependencies": [
+        "next/link"
+      ],
+      "complexity": {
+        "lines": 23,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(site)\\about\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "@components/ui/Hero",
+        "@components/ui/NewsletterSection",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "@components/ui/Hero",
+        "@components/ui/NewsletterSection",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 242,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "next/navigation"
+      ],
+      "dependencies": [
+        "react",
+        "next/navigation"
+      ],
+      "complexity": {
+        "lines": 15,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\layout.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link",
+        "next/navigation",
+        "next-auth/react"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react",
+        "next/link",
+        "next/navigation",
+        "next-auth/react"
+      ],
+      "complexity": {
+        "lines": 177,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [
+        {
+          "method": "/",
+          "endpoint": "/",
+          "line": 60,
+          "context": "});\r\n      router.push('/');\r\n    } catch (error) {",
+          "callType": "next-auth"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "lib\\db\\models\\mongo\\user.ts": {
+      "type": "utility",
+      "purpose": "Utility library",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "UserSchema",
+        "UserCreateSchema",
+        "UserUpdateSchema",
+        "UserModel"
+      ],
+      "imports": [
+        "zod",
+        "mongodb",
+        "@lib/db/mongo",
+        "@ftypes/user"
+      ],
+      "dependencies": [
+        "zod",
+        "mongodb",
+        "@lib/db/mongo",
+        "@ftypes/user"
+      ],
+      "complexity": {
+        "lines": 90,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\status\\restart\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "next",
+        "child_process"
+      ],
+      "dependencies": [
+        "next",
+        "child_process"
+      ],
+      "complexity": {
+        "lines": 24,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\status\\mongo\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "mongodb"
+      ],
+      "dependencies": [
+        "mongodb"
+      ],
+      "complexity": {
+        "lines": 16,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\status\\chroma\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "@lib/db/chroma"
+      ],
+      "dependencies": [
+        "@lib/db/chroma"
+      ],
+      "complexity": {
+        "lines": 11,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\auth\\[...nextauth]\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "authOptions",
+        "GET",
+        "POST"
+      ],
+      "imports": [
+        "next-auth",
+        "next-auth/providers/credentials",
+        "../../../../lib/db/mongo",
+        "crypto"
+      ],
+      "dependencies": [
+        "next-auth",
+        "next-auth/providers/credentials",
+        "crypto"
+      ],
+      "complexity": {
+        "lines": 108,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\admin\\server-status\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "next/server",
+        "next-auth/next",
+        "../../auth/[...nextauth]/route",
+        "@/lib/db/mongo",
+        "child_process",
+        "util",
+        "os",
+        "@/lib/db/chroma",
+        "dotenv"
+      ],
+      "dependencies": [
+        "next/server",
+        "next-auth/next",
+        "@/lib/db/mongo",
+        "child_process",
+        "util",
+        "os",
+        "@/lib/db/chroma",
+        "dotenv"
+      ],
+      "complexity": {
+        "lines": 222,
+        "functions": 5,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [
+        {
+          "method": "GET",
+          "endpoint": "http://localhost:3000/api/status/chroma",
+          "line": 185,
+          "context": "// Simple connection check\r\n      const response = await fetch('http://localhost:3000/api/status/chroma', {\r\n        method: 'GET',",
+          "callType": "fetch"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\admin\\dashboard-stats\\route.ts": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "next/server",
+        "next-auth/next",
+        "../../auth/[...nextauth]/route",
+        "../../../../lib/db/mongo",
+        "fs",
+        "path"
+      ],
+      "dependencies": [
+        "next/server",
+        "next-auth/next",
+        "fs",
+        "path"
+      ],
+      "complexity": {
+        "lines": 96,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 2,
+        "components": 0
+      },
+      "apiCalls": [
+        {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/collections",
+          "line": 47,
+          "context": "try {\r\n      const response = await fetch('http://localhost:8000/api/v1/collections', {\r\n        method: 'GET',",
+          "callType": "fetch"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\api\\admin\\available-scripts\\route.ts": {
+      "type": "script",
+      "purpose": "Development/build script",
+      "layer": "infrastructure",
+      "isApiRoute": false,
+      "isPageComponent": false,
+      "exports": [
+        "GET"
+      ],
+      "imports": [
+        "next/server",
+        "next-auth/next",
+        "../../auth/[...nextauth]/route",
+        "fs",
+        "path"
+      ],
+      "dependencies": [
+        "next/server",
+        "next-auth/next",
+        "fs",
+        "path"
+      ],
+      "complexity": {
+        "lines": 142,
+        "functions": 2,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 0
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\login\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "next-auth/react",
+        "next/navigation",
+        "zod"
+      ],
+      "dependencies": [
+        "react",
+        "next-auth/react",
+        "next/navigation",
+        "zod"
+      ],
+      "complexity": {
+        "lines": 155,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [
+        {
+          "method": "/ADMIN/DASHBOARD",
+          "endpoint": "/admin/dashboard",
+          "line": 25,
+          "context": "if (session) {\r\n      router.push('/admin/dashboard');\r\n    }",
+          "callType": "next-auth"
+        },
+        {
+          "method": "/ADMIN/DASHBOARD",
+          "endpoint": "/admin/dashboard",
+          "line": 67,
+          "context": "router.refresh();\r\n      router.push('/admin/dashboard');\r\n    } catch (error) {",
+          "callType": "next-auth"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\login\\layout.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default",
+        "metadata"
+      ],
+      "imports": [],
+      "dependencies": [],
+      "complexity": {
+        "lines": 17,
+        "functions": 1,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\dashboard\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "next-auth/react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "next-auth/react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 300,
+        "functions": 9,
+        "classes": 0,
+        "interfaces": 3,
+        "components": 4
+      },
+      "apiCalls": [
+        {
+          "method": "/API/ADMIN/SERVER-STATUS",
+          "endpoint": "/api/admin/server-status",
+          "line": 57,
+          "context": "try {\r\n        const response = await fetch('/api/admin/server-status');",
+          "callType": "fetch"
+        },
+        {
+          "method": "/API/ADMIN/SERVER-STATUS",
+          "endpoint": "/api/admin/server-status",
+          "line": 103,
+          "context": "try {\r\n      const response = await fetch('/api/admin/server-status');\r\n      if (!response.ok) {",
+          "callType": "fetch"
+        }
+      ],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\dashboard\\users\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 327,
+        "functions": 5,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 3
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\dashboard\\settings\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 533,
+        "functions": 14,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 1
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\dashboard\\posts\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@lib/componentLibrary",
+        "@components/Canvas",
+        "@components/ComponentPalette",
+        "@components/PropertyEditor"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@lib/componentLibrary",
+        "@components/Canvas",
+        "@components/ComponentPalette",
+        "@components/PropertyEditor"
+      ],
+      "complexity": {
+        "lines": 68,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 2
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    },
+    "app\\(admin)\\admin\\dashboard\\analytics\\page.tsx": {
+      "type": "unknown",
+      "purpose": "Could not infer purpose from path",
+      "exports": [
+        "default"
+      ],
+      "imports": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "dependencies": [
+        "react",
+        "@mantine/core",
+        "@tabler/icons-react"
+      ],
+      "complexity": {
+        "lines": 284,
+        "functions": 6,
+        "classes": 0,
+        "interfaces": 0,
+        "components": 5
+      },
+      "apiCalls": [],
+      "apiEndpoints": [],
+      "hasTests": false
+    }
+  }
+}

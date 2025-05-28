@@ -13,11 +13,18 @@ interface ExtendedJWT extends JWT {
  * Middleware to protect admin routes and handle authentication redirects
  */
 export async function middleware(req: NextRequest): Promise<NextResponse> {
+  console.log('🔍 Middleware - Path:', req.nextUrl.pathname);
   // Get the token from the request and cast to our extended type
   const token = (await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
   })) as ExtendedJWT | null;
+
+  console.log('🔐 Token exists:', !!token);
+  console.log(
+    '🔑 Token details:',
+    token ? { id: token.id, role: token.role } : null,
+  );
 
   const { pathname } = req.nextUrl;
 

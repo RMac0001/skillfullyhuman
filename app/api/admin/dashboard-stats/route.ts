@@ -1,4 +1,5 @@
 // app/api/admin/dashboard-stats/route.ts
+//safe to delete
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]/route';

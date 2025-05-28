@@ -1,0 +1,71 @@
+/* components/ui/BlogPostCard.module.css */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .horizontal {
+    flex-direction: column;
+  }
+}
+
+.imageContainer {
+  overflow: hidden;
+}
+
+.image {
+  transition: transform 300ms ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.title {
+  font-weight: 700;
+  margin-top: var(--mantine-spacing-xs);
+  color: var(--mantine-color-black);
+  transition: color 150ms ease;
+}
+
+.title:hover {
+  color: var(--mantine-color-primary-6);
+}
+
+.excerpt {
+  margin-top: var(--mantine-spacing-xs);
+  flex-grow: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--mantine-spacing-md);
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mantine-spacing-xs);
+  }
+}
+
+.readMore {
+  margin-top: var(--mantine-spacing-xs);
+  font-weight: 500;
+  color: var(--mantine-color-primary-6);
+}

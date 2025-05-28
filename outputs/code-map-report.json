@@ -1,0 +1,359 @@
+{
+  "overview": {
+    "totalFiles": 74,
+    "byType": {
+      "unknown": 30,
+      "config": 1,
+      "middleware": 1,
+      "type-definition": 6,
+      "script": 8,
+      "utility": 8,
+      "dev-tool": 2,
+      "cms": 7,
+      "component": 11
+    },
+    "byLayer": {
+      "infrastructure": 26,
+      "presentation": 18
+    },
+    "byFramework": {
+      "next.js": 2,
+      "react": 11
+    },
+    "withTests": 0
+  },
+  "complexity": {
+    "totalLines": 8959,
+    "totalFunctions": 314,
+    "totalClasses": 0,
+    "totalInterfaces": 61,
+    "totalComponents": 89,
+    "averageComplexity": 121.06756756756756
+  },
+  "dependencies": {
+    "external": [
+      "@mantine/core",
+      "path",
+      "next",
+      "next/server",
+      "next-auth/jwt",
+      "mongodb",
+      "next-auth",
+      "fs",
+      "archiver",
+      "url",
+      "node:fs",
+      "node:path",
+      "node:child_process",
+      "ts-morph",
+      "glob",
+      "dotenv-safe",
+      "zod",
+      "readline",
+      "crypto",
+      "dotenv",
+      "@lib/env",
+      "@/types",
+      "@lib/chroma/client",
+      "@/lib/componentLibrary",
+      "react",
+      "@blocknote/react",
+      "@blocknote/mantine",
+      "@blocknote/core/fonts/inter.css",
+      "@blocknote/mantine/style.css",
+      "@tabler/icons-react",
+      "@mantine/notifications",
+      "next-auth/react",
+      "next/font/google",
+      "@mantine/core/styles.css",
+      "chromadb",
+      "@mantine/carousel",
+      "next/link",
+      "@mantine/form",
+      "next/navigation",
+      "@components/ui/Hero",
+      "@components/layout/Content",
+      "@components/layout/Header",
+      "@components/layout/Footer",
+      "@/lib/db/mongo",
+      "axios",
+      "@/components/ui/Hero",
+      "@components/ui/ContactSection",
+      "@components/ui/NewsletterSection",
+      "@components/ui/BlogPostCard",
+      "@lib/db/mongo",
+      "@ftypes/user",
+      "child_process",
+      "@lib/db/chroma",
+      "next-auth/providers/credentials",
+      "next-auth/next",
+      "util",
+      "os",
+      "@/lib/db/chroma",
+      "@lib/componentLibrary",
+      "@components/Canvas",
+      "@components/ComponentPalette",
+      "@components/PropertyEditor"
+    ],
+    "mostUsed": {
+      "@mantine/core": 32,
+      "path": 8,
+      "next": 2,
+      "next/server": 5,
+      "next-auth/jwt": 2,
+      "mongodb": 7,
+      "next-auth": 2,
+      "fs": 7,
+      "archiver": 1,
+      "url": 4,
+      "node:fs": 1,
+      "node:path": 1,
+      "node:child_process": 1,
+      "ts-morph": 1,
+      "glob": 1,
+      "dotenv-safe": 1,
+      "zod": 3,
+      "readline": 1,
+      "crypto": 2,
+      "dotenv": 2,
+      "@lib/env": 1,
+      "@/types": 1,
+      "@lib/chroma/client": 1,
+      "@/lib/componentLibrary": 3,
+      "react": 13,
+      "@blocknote/react": 3,
+      "@blocknote/mantine": 2,
+      "@blocknote/core/fonts/inter.css": 2,
+      "@blocknote/mantine/style.css": 2,
+      "@tabler/icons-react": 16,
+      "@mantine/notifications": 1,
+      "next-auth/react": 4,
+      "next/font/google": 1,
+      "@mantine/core/styles.css": 1,
+      "chromadb": 1,
+      "@mantine/carousel": 1,
+      "next/link": 5,
+      "@mantine/form": 2,
+      "next/navigation": 4,
+      "@components/ui/Hero": 5,
+      "@components/layout/Content": 4,
+      "@components/layout/Header": 1,
+      "@components/layout/Footer": 1,
+      "@/lib/db/mongo": 2,
+      "axios": 1,
+      "@/components/ui/Hero": 1,
+      "@components/ui/ContactSection": 1,
+      "@components/ui/NewsletterSection": 3,
+      "@components/ui/BlogPostCard": 1,
+      "@lib/db/mongo": 1,
+      "@ftypes/user": 1,
+      "child_process": 2,
+      "@lib/db/chroma": 1,
+      "next-auth/providers/credentials": 1,
+      "next-auth/next": 3,
+      "util": 1,
+      "os": 1,
+      "@/lib/db/chroma": 1,
+      "@lib/componentLibrary": 1,
+      "@components/Canvas": 1,
+      "@components/ComponentPalette": 1,
+      "@components/PropertyEditor": 1
+    }
+  },
+  "architecture": {
+    "apiRoutes": 0,
+    "pageComponents": 0,
+    "layers": {
+      "infrastructure": [
+        "next.config.ts",
+        "middleware.ts",
+        "types\\user.ts",
+        "types\\session.ts",
+        "types\\post.ts",
+        "types\\next-auth.d.ts",
+        "types\\lesson.ts",
+        "types\\index.ts",
+        "scripts\\zip-project.ts",
+        "scripts\\verify-env.ts",
+        "scripts\\generate-code-map.ts",
+        "scripts\\folder-structure.ts",
+        "scripts\\debug-setup.ts",
+        "scripts\\create-admin.ts",
+        "scripts\\cleanup-database.ts",
+        "lib\\validate-env.ts",
+        "lib\\env.ts",
+        "lib\\date.ts",
+        "lib\\componentLibrary.ts",
+        "lib\\api-response.ts",
+        "dev-utils\\test-mongo-connection.js",
+        "dev-utils\\test-chroma-connection.js",
+        "lib\\db\\mongo.ts",
+        "lib\\db\\chroma.ts",
+        "lib\\db\\models\\mongo\\user.ts",
+        "app\\api\\admin\\available-scripts\\route.ts"
+      ],
+      "presentation": [
+        "cms\\PropertyEditor.tsx",
+        "cms\\PageEditor.jsx",
+        "cms\\customBlocks.js",
+        "cms\\ComponentPalette.tsx",
+        "cms\\ComponentPalette.jsx",
+        "cms\\Canvas.tsx",
+        "cms\\BlockEditor.jsx",
+        "components\\Demo.tsx",
+        "components\\ui\\TestimonialSection.tsx",
+        "components\\ui\\ProductCard.tsx",
+        "components\\ui\\NewsletterSection.tsx",
+        "components\\ui\\Hero.tsx",
+        "components\\ui\\FeatureSection.tsx",
+        "components\\ui\\ContactSection.tsx",
+        "components\\ui\\BlogPostCard.tsx",
+        "components\\layout\\Header.tsx",
+        "components\\layout\\Footer.tsx",
+        "components\\layout\\Content.tsx"
+      ]
+    }
+  },
+  "apiAnalysis": {
+    "totalApiCalls": 12,
+    "totalEndpoints": 0,
+    "callsByMethod": {
+      "GET": 4,
+      "/API/STATUS/CHROMA": 1,
+      "/API/STATUS/MONGO": 1,
+      "/API/STATUS/RESTART": 1,
+      "/": 1,
+      "/ADMIN/DASHBOARD": 2,
+      "/API/ADMIN/SERVER-STATUS": 2
+    },
+    "endpointsByMethod": {},
+    "callsByType": {
+      "fetch": 6,
+      "axios": 3,
+      "next-auth": 3
+    },
+    "flowMap": {},
+    "unmatchedCalls": [
+      {
+        "file": "app\\api\\health\\route.ts",
+        "call": {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/heartbeat",
+          "line": 71,
+          "context": "// Try to connect to ChromaDB heartbeat endpoint\r\n    const response = await fetch('http://localhost:8000/api/v1/heartbeat', {\r\n      method: 'GET',",
+          "callType": "fetch"
+        }
+      },
+      {
+        "file": "app\\api\\health\\route.ts",
+        "call": {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/collections",
+          "line": 85,
+          "context": "// Get collections to add detail\r\n    const collectionsResponse = await fetch(\r\n      'http://localhost:8000/api/v1/collections',",
+          "callType": "fetch"
+        }
+      },
+      {
+        "file": "app\\(site)\\status\\page.tsx",
+        "call": {
+          "method": "/API/STATUS/CHROMA",
+          "endpoint": "get",
+          "line": 22,
+          "context": "try {\r\n      const chroma = await axios.get('/api/status/chroma');\r\n      setChromaStatus(chroma.data.status);",
+          "callType": "axios"
+        }
+      },
+      {
+        "file": "app\\(site)\\status\\page.tsx",
+        "call": {
+          "method": "/API/STATUS/MONGO",
+          "endpoint": "get",
+          "line": 29,
+          "context": "try {\r\n      const mongo = await axios.get('/api/status/mongo');\r\n      setMongoStatus(mongo.data.status);",
+          "callType": "axios"
+        }
+      },
+      {
+        "file": "app\\(site)\\status\\page.tsx",
+        "call": {
+          "method": "/API/STATUS/RESTART",
+          "endpoint": "post",
+          "line": 39,
+          "context": "const handleRestart = async (service: 'mongo' | 'chroma') => {\r\n    await axios.post(`/api/status/restart`, { service });\r\n    setTimeout(() => checkStatus(), 5000);",
+          "callType": "axios"
+        }
+      },
+      {
+        "file": "app\\(admin)\\admin\\layout.tsx",
+        "call": {
+          "method": "/",
+          "endpoint": "/",
+          "line": 60,
+          "context": "});\r\n      router.push('/');\r\n    } catch (error) {",
+          "callType": "next-auth"
+        }
+      },
+      {
+        "file": "app\\api\\admin\\server-status\\route.ts",
+        "call": {
+          "method": "GET",
+          "endpoint": "http://localhost:3000/api/status/chroma",
+          "line": 185,
+          "context": "// Simple connection check\r\n      const response = await fetch('http://localhost:3000/api/status/chroma', {\r\n        method: 'GET',",
+          "callType": "fetch"
+        }
+      },
+      {
+        "file": "app\\api\\admin\\dashboard-stats\\route.ts",
+        "call": {
+          "method": "GET",
+          "endpoint": "http://localhost:8000/api/v1/collections",
+          "line": 47,
+          "context": "try {\r\n      const response = await fetch('http://localhost:8000/api/v1/collections', {\r\n        method: 'GET',",
+          "callType": "fetch"
+        }
+      },
+      {
+        "file": "app\\(admin)\\admin\\login\\page.tsx",
+        "call": {
+          "method": "/ADMIN/DASHBOARD",
+          "endpoint": "/admin/dashboard",
+          "line": 25,
+          "context": "if (session) {\r\n      router.push('/admin/dashboard');\r\n    }",
+          "callType": "next-auth"
+        }
+      },
+      {
+        "file": "app\\(admin)\\admin\\login\\page.tsx",
+        "call": {
+          "method": "/ADMIN/DASHBOARD",
+          "endpoint": "/admin/dashboard",
+          "line": 67,
+          "context": "router.refresh();\r\n      router.push('/admin/dashboard');\r\n    } catch (error) {",
+          "callType": "next-auth"
+        }
+      },
+      {
+        "file": "app\\(admin)\\admin\\dashboard\\page.tsx",
+        "call": {
+          "method": "/API/ADMIN/SERVER-STATUS",
+          "endpoint": "/api/admin/server-status",
+          "line": 57,
+          "context": "try {\r\n        const response = await fetch('/api/admin/server-status');",
+          "callType": "fetch"
+        }
+      },
+      {
+        "file": "app\\(admin)\\admin\\dashboard\\page.tsx",
+        "call": {
+          "method": "/API/ADMIN/SERVER-STATUS",
+          "endpoint": "/api/admin/server-status",
+          "line": 103,
+          "context": "try {\r\n      const response = await fetch('/api/admin/server-status');\r\n      if (!response.ok) {",
+          "callType": "fetch"
+        }
+      }
+    ]
+  }
+}

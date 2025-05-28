@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "types": ["node", "vitest/globals"],
+    "types": ["node", "react"],
     "plugins": [
       {
         "name": "next"
@@ -34,7 +34,6 @@
   "include": [
     "tests",
     "setup.ts",
-    "vitest.config.ts", // optional, helps with IDE support
     "app",
     "components",
     "lib",
@@ -45,7 +44,16 @@
     "**/*.{ts,tsx,js}",
     ".next/types/**/*.ts",
     "next.config.cjs",
-    "scripts/verify-env.cjs"
+    "scripts/verify-env.cjs",
+    "theme/provider.tsx",
+    "theme.ts",
+    "cms/Canvas.tsx",
+    "cms/ComponentPalette.tsx",
+    "cms/PropertyEditor.tsx",
+    "cms/BlockEditor.jsx",
+    "cms/ComponentPalette.jsx",
+    "cms/customBlocks.js",
+    "cms/PageEditor.jsx"
   ],
   "exclude": ["node_modules"]
 }

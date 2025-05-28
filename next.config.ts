@@ -3,6 +3,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
   images: {
     domains: ['images.unsplash.com', 'avatars.githubusercontent.com'],
   },

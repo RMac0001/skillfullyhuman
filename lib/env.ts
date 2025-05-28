@@ -1,5 +1,16 @@
-// File: lib/env.ts
-// Helper for accessing environment variables with type safety
+/*
+File: lib/env.ts
+Helper for accessing environment variables with type safety
+Infrastructure Configuration - Core app setup that everything depends on
+Used Everywhere - Database connections, auth, feature flags all need env vars
+Startup Validation - Critical for app initialization
+
+What This Provides
+Type Safety - Prevents typos in environment variable names
+Required vs Optional - Clear distinction with proper error handling
+Feature Flags - Toggle parts of platform on/off
+Validation - Catches missing env vars at startup instead of runtime
+*/
 
 type EnvVariable = string | undefined;
 

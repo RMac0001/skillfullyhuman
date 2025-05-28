@@ -1,0 +1,45 @@
+/* components/ui/ContactSection.module.css */
+.title {
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: var(--mantine-spacing-xl);
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  color: inherit;
+  text-decoration: none;
+  padding: var(--mantine-spacing-xs);
+  border-radius: var(--mantine-radius-sm);
+  transition: background-color 200ms ease;
+}
+
+.contactItem:hover {
+  background-color: var(--mantine-color-gray-0);
+  text-decoration: none;
+}
+
+.contactIcon {
+  color: var(--mantine-color-primary-6);
+  margin-right: var(--mantine-spacing-md);
+}
+
+.mapContainer {
+  border: 1px solid var(--mantine-color-gray-2);
+  border-radius: var(--mantine-radius-md);
+  overflow: hidden;
+}
+
+.map {
+  display: block;
+}
+
+.formContainer {
+  height: 100%;
+}

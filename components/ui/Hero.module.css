@@ -1,0 +1,39 @@
+/* components/ui/Hero.module.css */
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  z-index: 1;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--mantine-spacing-md);
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: var(--mantine-spacing-lg);
+
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+  }
+}

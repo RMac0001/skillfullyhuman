@@ -1,5 +1,16 @@
-// File: lib/date.ts
-// Utility functions for date and time handling
+/*
+File: lib/date.ts
+Utility functions for date and time handling
+Shared Utilities - Used across your entire app (blog posts, lessons, user profiles, etc.)
+Cross-Domain Functions - Your 5 different site functions all need date formatting
+Infrastructure Helpers - Core utilities that multiple features depend on
+
+What This Provides The Platform
+Date Display - formatDate(), formatDateTime() for showing post/lesson dates
+User Experience - getRelativeTime() for "2 days ago" style timestamps
+Content Metrics - calculateReadingTime() for your blog posts (connects to your Post type!)
+Text Analysis - countWords() for content statistics
+*/
 
 function normalizeDate(date: Date | string): Date | null {
   const d = typeof date === 'string' ? new Date(date) : date;

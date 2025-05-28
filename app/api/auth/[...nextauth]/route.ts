@@ -1,7 +1,7 @@
 // app/api/auth/[...nextauth]/route.ts
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { connectToDatabase } from '../../../../lib/db/mongo';
+import { connectToDatabase } from '@lib/db/mongo';
 import crypto from 'crypto';
 
 // Verify password function
@@ -9,7 +9,6 @@ function verifyPassword(
   storedPassword: string,
   suppliedPassword: string,
 ): boolean {
-  // Implement according to how your passwords are stored
   const [salt, hash] = storedPassword.split(':');
   const suppliedHash = crypto
     .pbkdf2Sync(suppliedPassword, salt, 1000, 64, 'sha512')
@@ -30,29 +29,38 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        console.log('🔐 AUTH ATTEMPT', credentials);
+
         try {
           const { db } = await connectToDatabase();
 
-          // Find user
           const user = await db.collection('users').findOne({
             email: credentials.email,
           });
 
+          console.log('📧 User found:', !!user); // Check if user exists
+
           if (!user) {
+            console.log('❌ No user found with email:', credentials.email);
             return null;
           }
 
-          // Check password
+          console.log(
+            '🔑 Password hash format:',
+            user.passwordHash?.substring(0, 20) + '...',
+          ); // Check format
+
           const isPasswordValid = verifyPassword(
             user.passwordHash,
             credentials.password,
           );
 
+          console.log('✅ Password valid:', isPasswordValid); // Check result
+
           if (!isPasswordValid) {
             return null;
           }
 
-          // Return user data
           return {
             id: user._id.toString(),
             email: user.email,
@@ -68,7 +76,7 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: 'jwt',
-    maxAge: 24 * 60 * 60, // 24 hours
+    maxAge: 24 * 60 * 60,
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -93,6 +101,7 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-// Export the NextAuth handler for App Router
+// THIS IS THE KEY CHANGE - App Router requires this syntax
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };

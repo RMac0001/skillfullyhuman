@@ -1,5 +1,10 @@
-// File: lib/api-response.ts
-// Helper functions for consistent API responses
+/* 
+File: lib/api-response.ts
+Helper functions for consistent API responses
+General Utilities - Used across entire API, not specific to any one feature
+Infrastructure Helper - Standardizes all API responses throughout app
+Cross-Domain Usage - Blog API, CMS API, user API, lesson API all use these
+*/
 
 import { ApiResponse } from '@/types';
 
