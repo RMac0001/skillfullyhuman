@@ -23,6 +23,7 @@
     ],
     "paths": {
       "@app/*": ["app/*"],
+      "@cms/*": ["cms/*"],
       "@ftypes/*": ["types/*"],
       "@api/*": ["api/*"],
       "@components/*": ["components/*"],
@@ -35,6 +36,7 @@
     "tests",
     "setup.ts",
     "app",
+    "cms",
     "components",
     "lib",
     "utils",
@@ -46,14 +48,7 @@
     "next.config.cjs",
     "scripts/verify-env.cjs",
     "theme/provider.tsx",
-    "theme.ts",
-    "cms/Canvas.tsx",
-    "cms/ComponentPalette.tsx",
-    "cms/PropertyEditor.tsx",
-    "cms/BlockEditor.jsx",
-    "cms/ComponentPalette.jsx",
-    "cms/customBlocks.js",
-    "cms/PageEditor.jsx"
+    "theme.ts"
   ],
   "exclude": ["node_modules"]
 }

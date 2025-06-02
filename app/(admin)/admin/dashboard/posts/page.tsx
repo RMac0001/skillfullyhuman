@@ -3,10 +3,10 @@
 
 import { useState } from 'react';
 import { Container, Stack, Title, Paper } from '@mantine/core';
-import { componentLibrary } from '@lib/componentLibrary';
-import { Canvas } from '@components/Canvas';
-import { ComponentPalette } from '@components/ComponentPalette';
-import PropertyEditor from '@components/PropertyEditor';
+import { componentLibrary } from '@cms/lib/componentLibrary';
+import { Canvas } from '@cms/Canvas';
+import { ComponentPalette } from '@cms/ComponentPalette';
+import PropertyEditor from '@cms/PropertyEditor';
 
 export default function AdminEditorPage() {
   const [components, setComponents] = useState<any[]>([]);

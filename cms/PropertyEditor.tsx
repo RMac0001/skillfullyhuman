@@ -2,7 +2,7 @@
 'use client';
 
 import { Card, Stack, Select, TextInput, Title } from '@mantine/core';
-import { componentLibrary } from '@/lib/componentLibrary';
+import { componentLibrary } from '@cms/lib/componentLibrary';
 
 type ComponentType = keyof typeof componentLibrary;
 

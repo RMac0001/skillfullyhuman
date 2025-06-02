@@ -2,7 +2,7 @@
 'use client';
 
 import { Box, Stack, Paper } from '@mantine/core';
-import { componentLibrary } from '@/lib/componentLibrary';
+import { componentLibrary } from '@cms/lib/componentLibrary';
 
 type ComponentType = keyof typeof componentLibrary;
 
