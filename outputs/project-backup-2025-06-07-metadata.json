@@ -1,0 +1,39 @@
+{
+  "created": "2025-06-07T15:37:07.378Z",
+  "project": {
+    "name": "njserver",
+    "version": "0.1.0"
+  },
+  "archive": {
+    "filename": "project-backup-2025-06-07.zip",
+    "size": 1087523,
+    "sizeFormatted": "1 MB",
+    "fileCount": 144,
+    "compressionLevel": 9
+  },
+  "options": {
+    "includeOutputs": false,
+    "excludePatterns": [
+      "node_modules/**",
+      ".git/**",
+      "*.log",
+      "*.zip",
+      "*.tar.gz",
+      "query.*",
+      "backups/**",
+      "mongo-log/**",
+      "mongo-data/**",
+      "chroma-data/**",
+      ".next/**",
+      "dist/**",
+      "build/**",
+      "coverage/**",
+      ".nyc_output/**",
+      "outputs/**",
+      "**/.DS_Store",
+      "**/Thumbs.db",
+      "**/*.tmp",
+      "**/*.temp"
+    ]
+  }
+}
