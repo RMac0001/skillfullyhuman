@@ -11,7 +11,8 @@ function verifyPassword(
 ): boolean {
   const [salt, hash] = storedPassword.split(':');
   const suppliedHash = crypto
-    .pbkdf2Sync(suppliedPassword, salt, 1000, 64, 'sha512')
+    // Match the 100000 iterations used when creating accounts
+    .pbkdf2Sync(suppliedPassword, salt, 100000, 64, 'sha512')
     .toString('hex');
   return hash === suppliedHash;
 }
