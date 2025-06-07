@@ -26,7 +26,7 @@ export default function Header() {
     <Box component="header" className={classes.header}>
       <Container size="xl" h="100%" py={0}>
         <Group justify="space-between" h="100%">
-          {/* ✅ Logo wrapped in Next.js Link with no nested <a> */}
+          {/* Logo wrapped in Mantine Anchor */}
           <Anchor href="/">
             <Group gap="xs">
               <Box w={100} h={100}>
