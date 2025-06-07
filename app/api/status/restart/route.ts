@@ -1,24 +1,30 @@
-// /pages/api/status/restart.ts
-import type { NextApiRequest, NextApiResponse } from 'next';
+// app/api/status/restart/route.ts
+import { NextRequest, NextResponse } from 'next/server';
 import { exec } from 'child_process';
+import { promisify } from 'util';
 
 const serviceMap: Record<string, string> = {
   mongo: 'Start MongoDB',
   chroma: 'Start ChromaDB'
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') return res.status(405).end();
+const execAsync = promisify(exec);
 
-  const { service } = req.body;
+export async function POST(request: NextRequest) {
+  const { service } = await request.json();
   const taskName = serviceMap[service];
 
-  if (!taskName) return res.status(400).json({ error: 'Invalid service' });
+  if (!taskName) {
+    return NextResponse.json({ error: 'Invalid service' }, { status: 400 });
+  }
 
-  exec(`schtasks /run /tn "${taskName}"`, (err) => {
-    if (err) {
-      return res.status(500).json({ success: false, error: err.message });
-    }
-    return res.status(200).json({ success: true });
-  });
+  try {
+    await execAsync(`schtasks /run /tn "${taskName}"`);
+    return NextResponse.json({ success: true });
+  } catch (err: any) {
+    return NextResponse.json(
+      { success: false, error: err.message },
+      { status: 500 },
+    );
+  }
 }
