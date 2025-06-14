@@ -1,4 +1,4 @@
-// app/(admin)/admin/server-status/page.tsx
+// app/(admin)/admin/dashboard/page.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -17,65 +17,80 @@ import {
 } from '@mantine/core';
 import { IconRefresh, IconAlertCircle } from '@tabler/icons-react';
 
-// Define types for the server status data
-interface ServerMetrics {
-  uptime?: number;
-  memoryUsage?: number;
-  cpuUsage?: number;
+// Define types for the health check data
+interface ServiceDetails {
   version?: string;
+  uptime?: number;
   connections?: number;
   dbSize?: number;
   collections?: number;
+  totalCollections?: number;
   totalEmbeddings?: number;
+  memory?: {
+    rss?: number;
+    heapUsed?: number;
+    heapTotal?: number;
+    resident?: number;
+    virtual?: number;
+  };
+  nodeVersion?: string;
+  platform?: string;
+  arch?: string;
+  pid?: number;
+  error?: string;
 }
 
-interface ServerStatusItem {
-  status: 'healthy' | 'warning' | 'error' | 'loading';
+interface ServiceHealth {
+  status: 'healthy' | 'warning' | 'error';
   message: string;
-  metrics: ServerMetrics;
+  details?: ServiceDetails;
 }
 
-interface ServerStatusData {
-  webServer: ServerStatusItem;
-  mongodb: ServerStatusItem;
-  chromadb: ServerStatusItem;
+interface HealthCheckData {
+  status: 'healthy' | 'warning' | 'error';
+  environment: string;
+  version: string;
+  timestamp: string;
+  services: {
+    web: ServiceHealth;
+    mongodb: ServiceHealth;
+    chromadb: ServiceHealth;
+  };
 }
 
 export default function ServerStatusPage() {
   const { data: session, status } = useSession();
-  // Initialize as null to show loading skeleton first
-  const [serverStatus, setServerStatus] = useState<ServerStatusData | null>(
-    null,
-  );
+  const [healthData, setHealthData] = useState<HealthCheckData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   useEffect(() => {
-    const fetchStatus = async () => {
+    const fetchHealthData = async () => {
       try {
-        const response = await fetch('/api/admin/server-status');
+        const response = await fetch('/api/admin/health');
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
 
         const data = await response.json();
-        setServerStatus(data);
+        setHealthData(data);
         setLastUpdated(new Date());
+        setError(null);
       } catch (err) {
         setError((err as Error).message);
-        console.error('Failed to fetch server status:', err);
+        console.error('Failed to fetch health data:', err);
       } finally {
         setIsLoading(false);
       }
     };
 
     if (status === 'authenticated') {
-      fetchStatus();
+      fetchHealthData();
 
-      // Set up polling
-      const interval = setInterval(fetchStatus, 30000); // every 30 seconds
+      // Set up polling every 30 seconds
+      const interval = setInterval(fetchHealthData, 30000);
 
       return () => clearInterval(interval);
     }
@@ -83,29 +98,29 @@ export default function ServerStatusPage() {
 
   // Get badge color based on status
   const getBadgeColor = (status: string) => {
-    if (status === 'healthy') return 'lime';
+    if (status === 'healthy') return 'green';
     if (status === 'warning') return 'yellow';
-    if (status === 'error') return 'var(--mantine-color-red-9)';
+    if (status === 'error') return 'red';
     return 'gray';
   };
 
   // Get badge text based on status
   const getBadgeText = (status: string) => {
-    if (status === 'healthy') return 'ONLINE';
+    if (status === 'healthy') return 'HEALTHY';
     if (status === 'warning') return 'WARNING';
-    if (status === 'error') return 'OFFLINE';
-    return 'CHECKING';
+    if (status === 'error') return 'ERROR';
+    return 'UNKNOWN';
   };
 
   const refreshStatus = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/admin/server-status');
+      const response = await fetch('/api/admin/health');
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
-      setServerStatus(data);
+      setHealthData(data);
       setLastUpdated(new Date());
       setError(null);
     } catch (err) {
@@ -129,15 +144,11 @@ export default function ServerStatusPage() {
   const ServiceCard = ({
     title,
     subtitle,
-    status,
-    message,
-    metrics,
+    service,
   }: {
     title: string;
     subtitle: string;
-    status: string;
-    message: string;
-    metrics: ServerMetrics;
+    service: ServiceHealth;
   }) => (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Stack gap="md">
@@ -148,79 +159,113 @@ export default function ServerStatusPage() {
               {subtitle}
             </Text>
           </div>
-          <Badge color={getBadgeColor(status)} variant="filled" size="sm">
-            {getBadgeText(status)}
+          <Badge
+            color={getBadgeColor(service.status)}
+            variant="filled"
+            size="sm"
+          >
+            {getBadgeText(service.status)}
           </Badge>
         </Group>
 
         <Stack gap="xs">
-          <MetricItem label="Status" value={message || 'N/A'} />
+          <MetricItem label="Status" value={service.message || 'N/A'} />
 
-          {title === 'Web Server' && (
+          {title === 'Web Server' && service.details && (
             <>
               <MetricItem
                 label="Uptime"
                 value={
-                  metrics.uptime
-                    ? `${Math.floor(metrics.uptime / 3600)}h ${Math.floor((metrics.uptime % 3600) / 60)}m`
+                  service.details.uptime
+                    ? `${Math.floor(service.details.uptime / 3600)}h ${Math.floor((service.details.uptime % 3600) / 60)}m`
                     : 'N/A'
                 }
               />
               <MetricItem
-                label="Memory"
+                label="Memory (RSS)"
                 value={
-                  metrics.memoryUsage
-                    ? `${Math.round(metrics.memoryUsage * 100) / 100} MB`
+                  service.details.memory?.rss
+                    ? `${service.details.memory.rss} MB`
                     : 'N/A'
                 }
               />
               <MetricItem
-                label="CPU"
+                label="Heap Used"
                 value={
-                  metrics.cpuUsage
-                    ? `${Math.round(metrics.cpuUsage * 100) / 100}%`
+                  service.details.memory?.heapUsed
+                    ? `${service.details.memory.heapUsed} MB`
                     : 'N/A'
                 }
+              />
+              <MetricItem
+                label="Node Version"
+                value={service.details.nodeVersion || 'N/A'}
+              />
+              <MetricItem
+                label="Platform"
+                value={service.details.platform || 'N/A'}
               />
             </>
           )}
 
-          {title === 'MongoDB' && (
+          {title === 'MongoDB' && service.details && (
             <>
               <MetricItem
                 label="Version"
-                value={metrics.version || 'unknown'}
+                value={service.details.version || 'unknown'}
               />
               <MetricItem
                 label="Connections"
-                value={metrics.connections?.toString() || '0'}
+                value={service.details.connections?.toString() || '0'}
               />
               <MetricItem
                 label="DB Size"
                 value={
-                  metrics.dbSize !== undefined
-                    ? `${Math.round(metrics.dbSize * 100) / 100} MB`
+                  service.details.dbSize !== undefined
+                    ? `${service.details.dbSize} MB`
                     : '0 MB'
                 }
+              />
+              <MetricItem
+                label="Collections"
+                value={service.details.collections?.toString() || '0'}
+              />
+              {service.details.memory && (
+                <>
+                  <MetricItem
+                    label="Memory (Resident)"
+                    value={
+                      service.details.memory.resident
+                        ? `${service.details.memory.resident} MB`
+                        : 'N/A'
+                    }
+                  />
+                </>
+              )}
+            </>
+          )}
+
+          {title === 'ChromaDB' && service.details && (
+            <>
+              <MetricItem
+                label="Version"
+                value={service.details.version || 'unknown'}
+              />
+              <MetricItem
+                label="Collections"
+                value={service.details.totalCollections?.toString() || '0'}
+              />
+              <MetricItem
+                label="Total Embeddings"
+                value={service.details.totalEmbeddings?.toString() || '0'}
               />
             </>
           )}
 
-          {title === 'ChromaDB' && (
-            <>
-              <MetricItem
-                label="Version"
-                value={metrics.version || 'unknown'}
-              />
-              <MetricItem
-                label="Collections"
-                value={metrics.collections?.toString() || '0'}
-              />
-              <MetricItem
-                label="Embeddings"
-                value={metrics.totalEmbeddings?.toString() || '0'}
-              />
-            </>
+          {service.status === 'error' && service.details?.error && (
+            <Alert>
+              <Text size="xs">{service.details.error}</Text>
+            </Alert>
           )}
         </Stack>
       </Stack>
@@ -259,13 +304,13 @@ export default function ServerStatusPage() {
   );
 
   // Show loading skeleton while data is being fetched
-  if (isLoading && !serverStatus) {
+  if (isLoading && !healthData) {
     return (
       <Stack gap="xl" p="md">
         {/* Page Header */}
         <div>
           <Title order={1} mb="xs">
-            Server Status
+            System Health Dashboard
           </Title>
           <Text c="dimmed">
             Monitor the health and status of your server components
@@ -302,11 +347,28 @@ export default function ServerStatusPage() {
       {/* Page Header */}
       <div>
         <Title order={1} mb="xs">
-          Server Status
+          System Health Dashboard
         </Title>
         <Text c="dimmed">
           Monitor the health and status of your server components
         </Text>
+        {healthData && (
+          <Group gap="xs" mt="xs">
+            <Badge
+              color={getBadgeColor(healthData.status)}
+              variant="filled"
+              size="lg"
+            >
+              System {getBadgeText(healthData.status)}
+            </Badge>
+            <Text size="sm" c="dimmed">
+              Environment: {healthData.environment}
+            </Text>
+            <Text size="sm" c="dimmed">
+              Version: {healthData.version}
+            </Text>
+          </Group>
+        )}
       </div>
 
       {/* Error Display */}
@@ -317,7 +379,7 @@ export default function ServerStatusPage() {
           color="red"
           variant="light"
         >
-          Failed to load server status: {error}
+          Failed to load health data: {error}
         </Alert>
       )}
 
@@ -339,15 +401,13 @@ export default function ServerStatusPage() {
       </Group>
 
       {/* Status Cards Grid */}
-      {serverStatus && (
+      {healthData && (
         <Grid>
           <Grid.Col span={{ base: 12, md: 4 }}>
             <ServiceCard
               title="Web Server"
               subtitle="Next.js Application Server"
-              status={serverStatus.webServer.status}
-              message={serverStatus.webServer.message}
-              metrics={serverStatus.webServer.metrics}
+              service={healthData.services.web}
             />
           </Grid.Col>
 
@@ -355,9 +415,7 @@ export default function ServerStatusPage() {
             <ServiceCard
               title="MongoDB"
               subtitle="Database Server"
-              status={serverStatus.mongodb.status}
-              message={serverStatus.mongodb.message}
-              metrics={serverStatus.mongodb.metrics}
+              service={healthData.services.mongodb}
             />
           </Grid.Col>
 
@@ -365,9 +423,7 @@ export default function ServerStatusPage() {
             <ServiceCard
               title="ChromaDB"
               subtitle="Vector Database"
-              status={serverStatus.chromadb.status}
-              message={serverStatus.chromadb.message}
-              metrics={serverStatus.chromadb.metrics}
+              service={healthData.services.chromadb}
             />
           </Grid.Col>
         </Grid>
