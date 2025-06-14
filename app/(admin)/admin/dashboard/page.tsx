@@ -13,6 +13,7 @@ import {
   Stack,
   Button,
   Alert,
+  Skeleton,
 } from '@mantine/core';
 import { IconRefresh, IconAlertCircle } from '@tabler/icons-react';
 
@@ -42,11 +43,10 @@ interface ServerStatusData {
 
 export default function ServerStatusPage() {
   const { data: session, status } = useSession();
-  const [serverStatus, setServerStatus] = useState<ServerStatusData>({
-    webServer: { status: 'loading', message: '', metrics: {} },
-    mongodb: { status: 'loading', message: '', metrics: {} },
-    chromadb: { status: 'loading', message: '', metrics: {} },
-  });
+  // Initialize as null to show loading skeleton first
+  const [serverStatus, setServerStatus] = useState<ServerStatusData | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -91,10 +91,10 @@ export default function ServerStatusPage() {
 
   // Get badge text based on status
   const getBadgeText = (status: string) => {
-    if (status === 'healthy') return 'Online';
-    if (status === 'warning') return 'Warning';
-    if (status === 'error') return 'Offline';
-    return 'Loading...';
+    if (status === 'healthy') return 'ONLINE';
+    if (status === 'warning') return 'WARNING';
+    if (status === 'error') return 'OFFLINE';
+    return 'CHECKING';
   };
 
   const refreshStatus = async () => {
@@ -187,17 +187,20 @@ export default function ServerStatusPage() {
 
           {title === 'MongoDB' && (
             <>
-              <MetricItem label="Version" value={metrics.version || 'N/A'} />
+              <MetricItem
+                label="Version"
+                value={metrics.version || 'unknown'}
+              />
               <MetricItem
                 label="Connections"
-                value={metrics.connections?.toString() || 'N/A'}
+                value={metrics.connections?.toString() || '0'}
               />
               <MetricItem
                 label="DB Size"
                 value={
-                  metrics.dbSize
+                  metrics.dbSize !== undefined
                     ? `${Math.round(metrics.dbSize * 100) / 100} MB`
-                    : 'N/A'
+                    : '0 MB'
                 }
               />
             </>
@@ -205,14 +208,17 @@ export default function ServerStatusPage() {
 
           {title === 'ChromaDB' && (
             <>
-              <MetricItem label="Version" value={metrics.version || 'N/A'} />
+              <MetricItem
+                label="Version"
+                value={metrics.version || 'unknown'}
+              />
               <MetricItem
                 label="Collections"
-                value={metrics.collections?.toString() || 'N/A'}
+                value={metrics.collections?.toString() || '0'}
               />
               <MetricItem
                 label="Embeddings"
-                value={metrics.totalEmbeddings?.toString() || 'N/A'}
+                value={metrics.totalEmbeddings?.toString() || '0'}
               />
             </>
           )}
@@ -220,6 +226,76 @@ export default function ServerStatusPage() {
       </Stack>
     </Card>
   );
+
+  const LoadingCard = ({
+    title,
+    subtitle,
+  }: {
+    title: string;
+    subtitle: string;
+  }) => (
+    <Card shadow="sm" padding="lg" radius="md" withBorder>
+      <Stack gap="md">
+        <Group justify="space-between" align="flex-start">
+          <div>
+            <Title order={4}>{title}</Title>
+            <Text size="sm" c="dimmed">
+              {subtitle}
+            </Text>
+          </div>
+          <Skeleton height={22} width={80} radius="xl" />
+        </Group>
+
+        <Stack gap="xs">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Group justify="space-between" key={index}>
+              <Skeleton height={16} width={60} />
+              <Skeleton height={16} width={40} />
+            </Group>
+          ))}
+        </Stack>
+      </Stack>
+    </Card>
+  );
+
+  // Show loading skeleton while data is being fetched
+  if (isLoading && !serverStatus) {
+    return (
+      <Stack gap="xl" p="md">
+        {/* Page Header */}
+        <div>
+          <Title order={1} mb="xs">
+            Server Status
+          </Title>
+          <Text c="dimmed">
+            Monitor the health and status of your server components
+          </Text>
+        </div>
+
+        {/* Controls */}
+        <Group justify="space-between" align="center">
+          <Skeleton height={16} width={200} />
+          <Skeleton height={36} width={100} />
+        </Group>
+
+        {/* Loading Cards Grid */}
+        <Grid>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <LoadingCard
+              title="Web Server"
+              subtitle="Next.js Application Server"
+            />
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <LoadingCard title="MongoDB" subtitle="Database Server" />
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <LoadingCard title="ChromaDB" subtitle="Vector Database" />
+          </Grid.Col>
+        </Grid>
+      </Stack>
+    );
+  }
 
   return (
     <Stack gap="xl" p="md">
@@ -263,37 +339,39 @@ export default function ServerStatusPage() {
       </Group>
 
       {/* Status Cards Grid */}
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <ServiceCard
-            title="Web Server"
-            subtitle="Next.js Application Server"
-            status={serverStatus.webServer.status}
-            message={serverStatus.webServer.message}
-            metrics={serverStatus.webServer.metrics}
-          />
-        </Grid.Col>
+      {serverStatus && (
+        <Grid>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <ServiceCard
+              title="Web Server"
+              subtitle="Next.js Application Server"
+              status={serverStatus.webServer.status}
+              message={serverStatus.webServer.message}
+              metrics={serverStatus.webServer.metrics}
+            />
+          </Grid.Col>
 
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <ServiceCard
-            title="MongoDB"
-            subtitle="Database Server"
-            status={serverStatus.mongodb.status}
-            message={serverStatus.mongodb.message}
-            metrics={serverStatus.mongodb.metrics}
-          />
-        </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <ServiceCard
+              title="MongoDB"
+              subtitle="Database Server"
+              status={serverStatus.mongodb.status}
+              message={serverStatus.mongodb.message}
+              metrics={serverStatus.mongodb.metrics}
+            />
+          </Grid.Col>
 
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <ServiceCard
-            title="ChromaDB"
-            subtitle="Vector Database"
-            status={serverStatus.chromadb.status}
-            message={serverStatus.chromadb.message}
-            metrics={serverStatus.chromadb.metrics}
-          />
-        </Grid.Col>
-      </Grid>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <ServiceCard
+              title="ChromaDB"
+              subtitle="Vector Database"
+              status={serverStatus.chromadb.status}
+              message={serverStatus.chromadb.message}
+              metrics={serverStatus.chromadb.metrics}
+            />
+          </Grid.Col>
+        </Grid>
+      )}
     </Stack>
   );
 }

@@ -1,0 +1,13 @@
+﻿{
+    "ChromaDB":  {
+                     "Port":  "Not listening",
+                     "PID":  "N/A",
+                     "Process":  "NOT RUNNING"
+                 },
+    "Timestamp":  "2025-06-07 14:27:02",
+    "MongoDB":  {
+                    "Port":  "Not listening",
+                    "PID":  "N/A",
+                    "Process":  "NOT RUNNING"
+                }
+}

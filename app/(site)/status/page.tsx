@@ -5,8 +5,6 @@ import { Content } from '@components/layout/Content';
 import { Hero } from '@components/ui/Hero';
 import { Title, Text, Box, Paper, Button, Badge, Loader } from '@mantine/core';
 
-import { Demo3 } from '../../Demo';
-
 const StatusPage = () => {
   const [mongoStatus, setMongoStatus] = useState<'online' | 'offline'>(
     'offline',
