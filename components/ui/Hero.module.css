@@ -30,7 +30,6 @@
 
 .description {
   font-size: 1.25rem;
-  max-width: 600px;
   margin-bottom: var(--mantine-spacing-lg);
 
   @media (max-width: 768px) {
